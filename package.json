@@ -1,0 +1,28 @@
+{
+  "name": "BMObot",
+  "version": "1.0.0",
+  "description": "A friendly discord bot with the ultimate goal of contextual human language processing!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunnyNagam/BMObot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SunnyNagam/BMObot/issues"
+  },
+  "homepage": "https://github.com/SunnyNagam/BMObot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "eslint": "^5.4.0",
+    "jquery": "^3.3.1",
+    "jsdom": "^12.0.0",
+    "request": "^2.88.0",
+    "unirest": "^0.5.1"
+  }
+}
