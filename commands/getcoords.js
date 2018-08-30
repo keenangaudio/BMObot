@@ -12,6 +12,8 @@ module.exports = {
 		}, function (error, response, body) {
 			if (!error && response.statusCode === 200) {
 				body = body.results[0];
+				if(!body)
+					return message.channel.send("Location could not be reached!");
 				var resp = body.formatted_address + " is at:\n(" + body.geometry.location.lat + ", " + body.geometry.location.lng + ")";
 				message.channel.send(resp);
 			}

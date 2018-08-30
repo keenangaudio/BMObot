@@ -31,7 +31,7 @@ client.on('message', message => {
 	}
 	catch (error) {
 	    console.error(error);
-	    //message.reply('There was an error trying to execute that command!');
+	    message.reply('There was an error trying to execute that command!');
 	}
 });
 
