@@ -40,5 +40,5 @@ client.login(process.env.discord_token);
 // To wake up heroku every 5 minutes
 var http = require("http");
 setInterval(function() {
-    http.get("http://spam-beesly.herokuapp.com");
+    http.get("http://bmo-bot.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
