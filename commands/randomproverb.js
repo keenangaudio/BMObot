@@ -6,8 +6,8 @@ module.exports = {
     		"BLOOD ALONE MOVES THE WHEELS OF HISTORY", 
     		"Coconuts are technically mammals because they have hair and produce milk."
     		);
-    	var res = Math.random()*links.length;
+    	var res = Math.random()*proverbs.length;
 
-		message.channel.send(links[parseInt(res)]);
+		message.channel.send(proverbs[parseInt(res)]);
     },
 };
