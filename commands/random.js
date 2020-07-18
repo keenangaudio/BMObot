@@ -14,12 +14,6 @@ module.exports = {
 			    .setURL("https://www.reddit.com"+post.permalink)
 			    .setTimestamp()
 
-			    if(post.stickied){
-			    	message.channel.send("Skipping "+"https://www.reddit.com"+post.permalink)
-			    	execute(message,args)
-			    	return "gottem"
-			    }
-
 			    if(post.is_self){
 			    	embed.setDescription(post.selftext)
 			    }
