@@ -7,7 +7,12 @@ module.exports = {
     	function fetchReddit(error, response, body, args){
 			if (!error && response.statusCode === 200) {
 
-				post = body[0].data.children[0].data;
+				try{
+					post = body[0].data.children[0].data;
+				}
+				catch(error){
+					message.channel.send("Debug ur shit Sunny.")
+				}
 
 				const embed = new Discord.RichEmbed()
 			    .setColor('RED')
