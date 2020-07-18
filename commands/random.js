@@ -10,8 +10,15 @@ module.exports = {
 				if(body.data.children.length == 0){
 					return message.channel.send(args[0] + "? Can't find it dude.")
 				}
-				
+
 				post = body.data.children[0].data;
+
+				for (thing in body.data.children){
+					if(!thing.data.stickied){
+						post = thing.data;
+						return;
+					}
+				}
 
 				const embed = new Discord.RichEmbed()
 			    .setColor('RED')
@@ -46,11 +53,12 @@ module.exports = {
 
     	if (!args.length) {
             request({
-				url: "https://www.reddit.com/r/random/.json?limit=1",
+				url: "https://www.reddit.com/r/random/.json?limit=5",
 				json: true
 			}, (error, response, body) => {fetchReddit(error, response, body, args)});
         }
         else if(args.length == 1){
+        	message.channel.send("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1")
 	        request({
 				url: "https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1",
 				json: true
