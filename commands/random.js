@@ -6,13 +6,14 @@ module.exports = {
     execute(message, args) {
     	function fetchReddit(error, response, body, args){
 			if (!error && response.statusCode === 200) {
-
+				message.channel.send("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1")
 				if(body.data.children.length == 0){
 					return message.channel.send(args[0] + "? Can't find it dude.")
 				}
 
 				post = body.data.children[0].data;
-
+				message.channel.send("checkin www.reddit.com/"+post.subreddit_name_prefixed+"/.json?limit=1")
+				
 				for (thing in body.data.children){
 					if(!thing.data.stickied){
 						post = thing.data;
