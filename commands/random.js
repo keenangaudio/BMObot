@@ -6,21 +6,11 @@ module.exports = {
     execute(message, args) {
     	function fetchReddit(error, response, body, args){
 			if (!error && response.statusCode === 200) {
-				message.channel.send("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1")
-				if(body.data.children.length == 0){
+				if(body.data.children.length == 0 && args.length == 1){
 					return message.channel.send(args[0] + "? Can't find it dude.")
 				}
 
 				post = body.data.children[0].data;
-
-				console.log("checkin www.reddit.com/"+post.subreddit_name_prefixed+"/.json?limit=1")
-
-				for (thing in body.data.children){
-					if(!thing.data.stickied){
-						post = thing.data;
-						return;
-					}
-				}
 
 				const embed = new Discord.RichEmbed()
 			    .setColor('RED')
@@ -55,9 +45,17 @@ module.exports = {
 
     	if (!args.length) {
             request({
-				url: "https://www.reddit.com/r/random/.json?limit=5",
+				url: "https://www.reddit.com/r/random/.json?limit=1",
 				json: true
-			}, (error, response, body) => {fetchReddit(error, response, body, args)});
+			}, (error, response, body) => {
+				console.log("https://www.reddit.com/r/"body.data.children[0].data.subreddit_name_prefixed"/random/.json?limit=1");
+				request({
+					url: "https://www.reddit.com/r/"body.data.children[0].data.subreddit_name_prefixed"/random/.json?limit=1",
+					json: true
+				}, (error, response, body) => {
+					fetchReddit(error, response, body, args)
+				});
+			});
         }
         else if(args.length == 1){
         	console.log("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1");
