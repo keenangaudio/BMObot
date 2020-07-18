@@ -24,11 +24,11 @@ module.exports = {
 			    	embed.setDescription(desc)
 			    }
 			    else{
-			    	if(post.url.includes("youtube")){
-			    		embed.setDescription(post.url)
+			    	if(post.post_hint.includes("image")){
+			    		embed.setImage(post.url)
 			    	}
 			    	else{
-			    		embed.setImage(post.url)
+			    		embed.setDescription(post.url)
 			    	}
 			    }
 
