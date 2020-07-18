@@ -24,7 +24,7 @@ module.exports = {
 			    	embed.setDescription(desc)
 			    }
 			    else{
-			    	if(post.post_hint.includes("image")){
+			    	if(post.post_hint.includes("image") || post.url.includes(".gif")){
 			    		embed.setImage(post.url)
 			    	}
 			    	else{
