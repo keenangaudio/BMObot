@@ -12,8 +12,9 @@ module.exports = {
 				}
 
 				post = body.data.children[0].data;
-				message.channel.send("checkin www.reddit.com/"+post.subreddit_name_prefixed+"/.json?limit=1")
-				
+
+				console.log("checkin www.reddit.com/"+post.subreddit_name_prefixed+"/.json?limit=1")
+
 				for (thing in body.data.children){
 					if(!thing.data.stickied){
 						post = thing.data;
@@ -59,7 +60,7 @@ module.exports = {
 			}, (error, response, body) => {fetchReddit(error, response, body, args)});
         }
         else if(args.length == 1){
-        	message.channel.send("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1")
+        	console.log("https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1");
 	        request({
 				url: "https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1",
 				json: true
