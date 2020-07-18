@@ -8,7 +8,12 @@ module.exports = {
 			if (!error && response.statusCode === 200) {
 
 				try{
-					post = body[0].data.children[0].data;
+					if (body instanceof Array){
+						post = body[0].data.children[0].data;
+					}
+					else{
+						post = body.data.children[0].data;
+					}
 				}
 				catch(error){
 					message.channel.send("Debug ur shit Sunny.")
