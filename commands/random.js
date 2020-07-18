@@ -48,9 +48,9 @@ module.exports = {
 				url: "https://www.reddit.com/r/random/.json?limit=1",
 				json: true
 			}, (error, response, body) => {
-				console.log("https://www.reddit.com/r/"body.data.children[0].data.subreddit_name_prefixed"/random/.json?limit=1");
+				console.log("https://www.reddit.com/r/"+body.data.children[0].data.subreddit_name_prefixed+"/random/.json?limit=1");
 				request({
-					url: "https://www.reddit.com/r/"body.data.children[0].data.subreddit_name_prefixed"/random/.json?limit=1",
+					url: "https://www.reddit.com/r/"+body.data.children[0].data.subreddit_name_prefixed+"/random/.json?limit=1",
 					json: true
 				}, (error, response, body) => {
 					fetchReddit(error, response, body, args)
