@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args) {
     	function fetchReddit(error, response, body, args){
 			if (!error && response.statusCode === 200) {
-				if(body.data.children.length == 0 && args.length == 1){
+				if(body.data.children.length === 0 && args.length === 1){
 					return message.channel.send(args[0] + "? Can't find it dude.")
 				}
 
@@ -53,6 +53,7 @@ module.exports = {
 					url: "https://www.reddit.com/"+body.data.children[0].data.subreddit_name_prefixed+"/random/.json?limit=1",
 					json: true
 				}, (error, response, body) => {
+					console.log(body);
 					fetchReddit(error, response, body, args)
 				});
 			});
