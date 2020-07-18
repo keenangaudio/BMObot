@@ -13,9 +13,14 @@ module.exports = {
 			    .setTitle(post.title+':')
 			    .setURL("https://www.reddit.com"+post.permalink)
 			    .setTimestamp()
+			    .setFooter("From "+post.subreddit_name_prefixed)
 
 			    if(post.is_self){
-			    	embed.setDescription(post.selftext)
+			    	desc = post.selftext
+			    	if(desc.length >= 2048){
+			    		desc = desc.substring(0, 2045) + "...";
+			    	}
+			    	embed.setDescription(desc)
 			    }
 			    else{
 			    	if(post.url.includes("youtube")){
