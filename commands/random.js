@@ -18,7 +18,7 @@ module.exports = {
 			    	embed.setDescription(post.selftext)
 			    }
 			    else{
-			    	if(post.url.contains("youtube")){
+			    	if(post.url.includes("youtube")){
 			    		embed.setDescription(post.url)
 			    	}
 			    	else{
