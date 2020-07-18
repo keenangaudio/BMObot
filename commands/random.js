@@ -11,7 +11,7 @@ module.exports = {
 				const embed = new Discord.RichEmbed()
 			    .setColor('RED')
 			    .setTitle(post.title+':')
-			    .setURL("https://www.reddit.com/"+post.permalink)
+			    .setURL("https://www.reddit.com"+post.permalink)
 			    .setTimestamp()
 
 			    if(post.is_self){
@@ -29,9 +29,17 @@ module.exports = {
 			}
     	}
 
-        request({
-			url: "https://www.reddit.com/r/random/.json?limit=1",
-			json: true
-		}, (error, response, body) => {fetchReddit(error, response, body, args)});
+    	if (!args.length) {
+            request({
+				url: "https://www.reddit.com/r/random/.json?limit=1",
+				json: true
+			}, (error, response, body) => {fetchReddit(error, response, body, args)});
+        }
+        else if(args.length == 1){
+	        request({
+				url: "https://www.reddit.com/r/"+args[0]+"/random/.json?limit=1",
+				json: true
+			}, (error, response, body) => {fetchReddit(error, response, body, args)});
+    	}
     },
 };
