@@ -6,6 +6,11 @@ module.exports = {
     execute(message, args) {
     	function fetchReddit(error, response, body, args){
 			if (!error && response.statusCode === 200) {
+
+				if(body.data.children.length == 0){
+					return message.channel.send(args[0] + "? Can't find it dude.")
+				}
+				
 				post = body.data.children[0].data;
 
 				const embed = new Discord.RichEmbed()
