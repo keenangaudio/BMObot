@@ -8,7 +8,7 @@ module.exports = {
 			if (!error && response.statusCode === 200) {
 				post = body.data.children[0].data;
 
-				const embed = new Discord.MessageEmbed()
+				const embed = new Discord.RichEmbed()
 			    .setColor('RED')
 			    .setTitle(post.title+':')
 			    .setURL("https://www.reddit.com/"+post.permalink)
