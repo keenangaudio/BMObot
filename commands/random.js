@@ -34,7 +34,7 @@ module.exports = {
 			    	embed.setDescription(desc)
 			    }
 			    else{
-			    	if(post.post_hint.includes("image") || post.url.includes(".gif")){
+			    	if((post.hasOwnProperty("post_hint") && post.post_hint.includes("image")) || post.url.includes(".gif")){
 			    		embed.setImage(post.url)
 			    	}
 			    	else{
@@ -46,7 +46,7 @@ module.exports = {
 			}
 			else{
 				console.log(error);
-				return message.channel.send("Debug ur shit Sunny.");
+				return message.channel.send("Subreddit is private or could not be found.");
 			}
     	}
 
